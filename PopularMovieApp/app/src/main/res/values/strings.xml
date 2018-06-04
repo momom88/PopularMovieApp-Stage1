@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Popular Movie</string>
+    <string name="details_activity">Details Movie</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="popular_setting_menu">Popular Movie</string>
+    <string name="top_rated_setting_menu">Top Rated Movie</string>
+
+    <!-- Settings Menu Item [CHAR LIMIT=NONE] -->
+    <string name="settings_menu_item">Settings</string>
+    <string name="settings_title">Movie Settings</string>
+
+    <!-- Strings For Order-By Preference [CHAR LIMIT=30] -->
+    <string name="settings_order_by_label">Order By</string>
+    <string name="settings_order_by_key" translatable="false">order_by</string>
+    <string name="settings_order_by_default" translatable="false">@string/settings_order_by_popular_value</string>
+
+    <!-- Label for order-by popular option [CHAR LIMIT=20] -->
+    <string name="settings_order_by_popular_label">Popular Movie</string>
+    <string name="settings_order_by_popular_value" translatable="false">popular</string>
+
+    <!-- Label for order-by top rated option [CHAR LIMIT=20] -->
+    <string name="settings_order_by_top_rated_label">Top rated </string>
+    <string name="settings_order_by_top_rated_value" translatable="false">top_rated</string>
+
+    <!-- Lifetime and Bundle -->
+    <string name="parcel_movie">PARCEL_MOVIE</string>
+    <string name="detail_fragment_key">DETAIL_FRAGMENT</string>
+
+    <string name="header_title">Title</string>
+    <string name="header_vote_average">Rating</string>
+    <string name="header_release_date">Release date</string>
+    <string name="header_overview">Overview</string>
+    <string name="button_retry">RETRY</string>
+    <string name="not_available">Not available</string>
+
+</resources>
