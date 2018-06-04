@@ -16,7 +16,7 @@ public final class NetworkUtils {
     // LogTag
     private static final String LOG = NetworkUtils.class.getSimpleName();
     // Api key Movie database
-    private static final String movieApiKey = "c797a5f830b5c357c63e52269f7db78c";
+    private static final String movieApiKey = "";
     // movie URL
     private static final String MOVIE_DB_URL = "http://api.themoviedb.org/3/movie";
     private static final String MOVIE_API = "api_key";
