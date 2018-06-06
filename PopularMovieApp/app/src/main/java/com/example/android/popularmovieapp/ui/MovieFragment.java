@@ -8,7 +8,9 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,11 +21,18 @@ import com.example.android.popularmovieapp.FetchMovieAsyncTask;
 import com.example.android.popularmovieapp.R;
 import com.example.android.popularmovieapp.utilities.OnTaskCompleted;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class MovieFragment extends Fragment {
+
+    private final String LOG = MovieFragment.class.getSimpleName();
+
+    private Movie[] mMovies;
 
     // Define a new interface OnImageClickListener that triggers a callback in the host activity
     OnMovieClickListener mCallback;
@@ -70,6 +79,25 @@ public class MovieFragment extends Fragment {
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+
+        int numMovieObjects = mGridView.getCount();
+        if (numMovieObjects > 0) {
+            // Get Movie objects from gridview
+            Movie[] movies = new Movie[numMovieObjects];
+            for (int i = 0; i < numMovieObjects; i++) {
+                movies[i] = (Movie) mGridView.getItemAtPosition(i);
+            }
+
+            // Save Movie objects to bundle
+            outState.putParcelableArray(getString(R.string.parcel_movie), movies);
+        }
+
+        super.onSaveInstanceState(outState);
+    }
+
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
@@ -85,22 +113,31 @@ public class MovieFragment extends Fragment {
         mGridView = (GridView) rootView.findViewById(R.id.gridview);
         mGridView.setOnItemClickListener(moviePosterClickListener);
 
+        if (savedInstanceState != null &&
+                savedInstanceState.containsKey(getString(R.string.parcel_movie))) {
+            // Get Movie objects
+            Parcelable[] parcelables = savedInstanceState
+                    .getParcelableArray(getString(R.string.parcel_movie));
 
-        if (savedInstanceState == null) {
-            moviesFromApi(getSortOrder());
-        } else {
-            Parcelable[] parcelables = savedInstanceState.getParcelableArray("PARCEL_MOVIE");
             if (parcelables != null) {
-                int numMovieObjects = parcelables.length;
-                Movie[] movies = new Movie[numMovieObjects];
-                for (int i = 0; i < numMovieObjects; i++) {
-                    movies[i] = (Movie) parcelables[i];
+                int numMovie = parcelables.length;
+                mMovies = new Movie[numMovie];
+                for (int i = 0; i < numMovie; i++) {
+                    mMovies[i] = (Movie) parcelables[i];
                 }
-                mGridView.setAdapter(new MovieAdapter(getActivity(), movies));
+                // Load movie objects into view
+                mGridView.setAdapter(new MovieAdapter(getActivity(), mMovies));
+
+                Log.v(LOG, "Got movie info from savedInstanceState");
             }
+        }else {
+            moviesFromApi(getSortOrder());
         }
+
         return rootView;
     }
+
+
 
     private void moviesFromApi(String sortOrder) {
         ConnectivityManager connMgr = (ConnectivityManager) getActivity().getSystemService
