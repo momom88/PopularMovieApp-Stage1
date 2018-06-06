@@ -22,10 +22,10 @@ In your request for a key, state that your usage will be for educational/non-com
 
 API KEY must add to java class NetworkUtils to String movieApiKey . package com.example.android.popularmovieapp.utilities;
 
-<img src="/screenshot/1.png" width="363" height="564">
+<img src="/screenshot/1 (1).png" width="363" height="564">
 <img src="/screenshot/2.png" width="363" height="564">
 <img src="/screenshot/3.png" width="564" height="363">
 <img src="/screenshot/4.png" width="564" height="363">
-<img src="/screenshot/5.png" width="363" height="564">
+<img src="/screenshot/5.png" width="600" height="850">
 <img src="/screenshot/6.png" width="363" height="564">
 <img src="/screenshot/7.png" width="363" height="564">
