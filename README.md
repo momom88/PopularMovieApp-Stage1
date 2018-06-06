@@ -21,3 +21,11 @@ If you don’t already have an account, you will need to create one in order to 
 In your request for a key, state that your usage will be for educational/non-commercial use. You will also need to provide some personal information to complete the request. Once you submit your request, you should receive your key via email shortly after.
 
 API KEY must add to java class NetworkUtils to String movieApiKey . package com.example.android.popularmovieapp.utilities;
+
+<img src="/screenshots/1.png" width="363" height="564">
+<img src="/screenshots/2.png" width="363" height="564">
+<img src="/screenshots/3.png" width="363" height="564">
+<img src="/screenshots/4.png" width="363" height="564">
+<img src="/screenshots/5.png" width="363" height="564">
+<img src="/screenshots/6.png" width="363" height="564">
+<img src="/screenshots/7.png" width="363" height="564">
